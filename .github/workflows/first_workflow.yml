@@ -5,7 +5,7 @@ jobs:
     run-first-command:
         runs-on: ubuntu-latest
         steps:
-          - name:  Diplay some text
+          - name:  Display some text
             run: echo "Some text"
           - name: Display node and npm version
             run: |
