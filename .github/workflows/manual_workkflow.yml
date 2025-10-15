@@ -2,11 +2,11 @@ name: "Manual Workflow"
 on: workflow_dispatch
 
 jobs:
-    run-first-command:
+    run-manual-command:
         runs-on: ubuntu-latest
         steps:
-          - name:  Display some text
-            run: echo "Some text"
+          - name:  Display manual text
+            run: echo "Manual text"
           - name: Display node and npm version
             run: |
               node -v
