@@ -2,7 +2,7 @@ name: "Command Git Copy Files"
 on: push
 
 jobs:
-    run-actions-checkout:
+    run-comand-copy-files:
         runs-on: ubuntu-latest
         steps:
             - name: List files
