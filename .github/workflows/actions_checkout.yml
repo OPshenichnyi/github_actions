@@ -1,0 +1,12 @@
+name: "Actions Checkout"
+on: push
+
+jobs:
+    run-actions-checkout:
+        runs-on: ubuntu-latest
+        steps:
+            - name: List files in folder 
+              run: ls -a
+            - uses: actions/checkout@v5
+            - name: Copy files to new folder
+              run: ls -a
