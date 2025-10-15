@@ -8,6 +8,4 @@ jobs:
           - name:  Display manual text
             run: echo "Manual text"
           - name: Display node and npm version
-            run: |
-              node -v
-              npm -v
+            run: node -v
