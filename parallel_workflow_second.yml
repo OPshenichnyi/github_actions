@@ -1,0 +1,13 @@
+name: "Parallel Workflow Second"
+on: 
+  workflow_run:
+    workflows: [Parallel Workflow First]
+    types: 
+     - completed
+
+jobs:
+    run-parallel-workflow-first:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Display text second workflow
+              run: echo "Second workflow"

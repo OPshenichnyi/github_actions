@@ -1,0 +1,9 @@
+name: "Parallel Workflow First"
+on: [push]
+
+jobs:
+    run-parallel-workflow-first:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Display text first workflow
+              run: echo "First workflow"
