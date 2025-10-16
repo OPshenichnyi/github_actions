@@ -1,4 +1,4 @@
-name: "Parallel Workflow First"
+name: Parallel Workflow First
 on: [push]
 
 jobs:

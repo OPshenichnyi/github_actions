@@ -6,8 +6,8 @@ on:
      - completed
 
 jobs:
-    run-parallel-workflow-second:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Display text second workflow
-              run: echo "Second workflow"
+  run-parallel-workflow-second:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display text second workflow
+        run: echo "Second workflow"
