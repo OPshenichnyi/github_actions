@@ -6,7 +6,7 @@ on:
      - completed
 
 jobs:
-    run-parallel-workflow-first:
+    run-parallel-workflow-second:
         runs-on: ubuntu-latest
         steps:
             - name: Display text second workflow
