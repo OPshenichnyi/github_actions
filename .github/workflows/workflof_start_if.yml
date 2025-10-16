@@ -1,0 +1,11 @@
+name: Workflow Start If
+on: [push]
+
+jobs:
+    run-workflow-start-if:
+        runs-on: ubuntu-latest
+        steps:
+          - name:  Display files in folder
+            run: ls -a
+          - name: Display status of workflow
+            run: echo "Workflow status start"
