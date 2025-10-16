@@ -6,6 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name:  Display files in folder
-            run: ls -a
+            run: lshggha -a 
+            # run: ls -a
           - name: Display status of workflow
             run: echo "Workflow status start"
