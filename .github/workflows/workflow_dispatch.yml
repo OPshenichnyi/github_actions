@@ -1,0 +1,31 @@
+name: Workflow Dispatch
+on:
+    workflow_dispatch:
+      inputs:
+        title_custom:
+            description: "Type the title"
+            type: string
+            required: true
+            default: "Hello World"
+        select_custom:
+            description: Select value
+            type: choice
+            required: true
+            options:
+              - "value1"
+              - "value2"
+              - "value3"
+        checkbox_custom:
+            description: Checkbox 
+            type: boolean
+            required: false
+jobs:
+    run-workflow-dispatch:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Event Variables
+              run: |
+                  echo "Title: ${{ inputs.title_custom }}"
+                  echo "Select: ${{ inputs.select_custom }}"
+                  echo "Checkbox: ${{ inputs.checkbox_custom }}"
+            
