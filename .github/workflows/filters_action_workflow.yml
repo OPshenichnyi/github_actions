@@ -1,0 +1,20 @@
+name: Filters Action Workflow
+on: 
+  push:
+    branches:
+      - main
+      - "page/*"
+      - "page/**"
+      - "!page/blog"
+    # 
+    # branches-ignore:
+    #   - "page/blog"
+    tags:
+      - "v1.*"
+      - "!v2.1.2"
+jobs:
+    run-files-command:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Event Filters
+            run: echo "Event Filters"
