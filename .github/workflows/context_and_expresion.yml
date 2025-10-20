@@ -1,6 +1,6 @@
 name: Context and Expresion
 on: [push]
-
+run-name: "Display custom name"
 jobs:
     run-context-expresion:
         runs-on: ubuntu-latest
