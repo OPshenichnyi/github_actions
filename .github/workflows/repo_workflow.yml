@@ -1,0 +1,12 @@
+name: Repository Workflow dispatch
+on:
+    repository_dispatch:
+        types: [hello]
+
+jobs:
+    run-workflow-dispatch:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Event Variables
+              run: echo "Title: ${{ github.event.client_payload.title_custom }}"
+            
