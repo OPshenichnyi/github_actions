@@ -1,0 +1,16 @@
+name: Context and Expresion
+on: [push]
+
+jobs:
+    run-context-expresion:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Context and Expresion 
+            id: context-expresion
+            run: |
+                echo ${{ toJson(github)}}
+                echo ${{ toJson(runner)}}
+                echo ${{ toJson(job)}}
+                echo ${{ toJson(steps)}}
+
+
