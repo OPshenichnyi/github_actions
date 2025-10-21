@@ -8,6 +8,8 @@ jobs:
         env:
             JOB_CUSTOM_VAR: JOB_1 # Job variable доступна тільки в job
         steps:
+            - name: Set New Variable
+              run: echo "NEW_VAR=NEW_VALUE" >> "$GITHUB_ENV" # Записуємо значення в змінну NEW_VAR для доступу в кроках таким чином можна записати значення яки використовуємо в інших кроках 
             - name: Event Variables
               env:
                     STEP_CUSTOM_VAR: STEP_1 # Step variable доступна тільки в step
@@ -19,3 +21,4 @@ jobs:
                   echo '${{ env.WF_CUSTOM_VAR }}' # Виведення значення за допомгою env variable генераться в workflow runtime
                   echo $JOB_CUSTOM_VAR
                   echo $STEP_CUSTOM_VAR
+                  echo $NEW_VAR
