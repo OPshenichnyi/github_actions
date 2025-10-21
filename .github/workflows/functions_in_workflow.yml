@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Failure step
-              id: error-step_1 
+              id: error-step
               run: exit 1 # Цей крок буде завершено з помилкою
             - name: Runs on canceled # Цей крок буде виконаний якщо workflow буде скасовано
               if: ${{ cancelled()}}
