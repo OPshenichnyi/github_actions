@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: First Step # Цей крок буде виконаний завжди з затримкою 30 секунд
-              run: sleep 30
+              run: exit 1
             - name: Runs on canceled # Цей крок буде виконаний якщо workflow буде скасовано
               if: ${{ cancelled()}}
               run: echo "Runs on canceled"
@@ -19,3 +19,10 @@ jobs:
             - name: Runs on Failure # Цей крок буде виконаний якщо workflow буде завершено з помилкою
               if: ${{ failure()}}
               run: echo "Runs on Failure"
+    second-job:
+        runs-on: ubuntu-latest
+        needs: job
+        if: ${{ failure()}}
+        steps:
+            - name: Runs on failure second job
+              run: echo "Jobs failed"
