@@ -5,7 +5,8 @@ jobs:
     job: 
         runs-on: ubuntu-latest
         steps:
-            - name: First Step # Цей крок буде виконаний завжди з затримкою 30 секунд
+            - name: Failure step
+              id: error-step_1 
               run: exit 1 # Цей крок буде завершено з помилкою
             - name: Runs on canceled # Цей крок буде виконаний якщо workflow буде скасовано
               if: ${{ cancelled()}}
@@ -17,7 +18,7 @@ jobs:
               if: ${{ success()}}
               run: echo "Runs on success"
             - name: Runs on Failure # Цей крок буде виконаний якщо workflow буде завершено з помилкою
-              if: ${{ failure()}}
+              if: ${{ failure() && steps.error-step.conclusion == 'failure'}} # Це фільтр який перевіряє чи крок завершився з помилкою і чи крок error-step завершився з помилкою
               run: echo "Runs on Failure"
     second-job:
         runs-on: ubuntu-latest
