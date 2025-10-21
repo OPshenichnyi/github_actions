@@ -11,7 +11,10 @@ jobs:
                uses: actions/cache@v4
                with:
                     path: ~/.npm 
-                    key: "cache-file"
+                    key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+                    restore-keys: |
+                        ${{ runner.os }}-npm-
+                        ${{ runner.os }}-
             -  name: Display cache 
                run: echo '${{ toJson(steps.cache-steps.outputs)}}'
             -  name: Install dependencies
