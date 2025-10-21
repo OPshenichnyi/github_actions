@@ -1,0 +1,21 @@
+name: Variables in Workflow
+on: [push]
+env:
+    WF_CUSTOM_VAR: WF_1 # Workflow variable доступна глобально в job і step
+jobs:
+    run-variables-in-workflow:
+        runs-on: ubuntu-latest
+        env:
+            JOB_CUSTOM_VAR: JOB_1 # Job variable доступна тільки в job
+        steps:
+            - name: Event Variables
+              env:
+                    STEP_CUSTOM_VAR: STEP_1 # Step variable доступна тільки в step
+                    WF_CUSTOM_VAR: WF_2 # Зміна значення Workflow variable
+              run: |
+                  echo $GIHUB_REF
+                  echo '${{ github.ref}}'
+                  echo $WF_CUSTOM_VAR # Виведення значення за допомгою run command генераться на віртуальній машині
+                  echo '${{ env.WF_CUSTOM_VAR }}' # Виведення значення за допомгою env variable генераться в workflow runtime
+                  echo $JOB_CUSTOM_VAR
+                  echo $STEP_CUSTOM_VAR
