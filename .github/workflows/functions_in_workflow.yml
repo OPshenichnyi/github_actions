@@ -5,17 +5,17 @@ jobs:
     job: 
         runs-on: ubuntu-latest
         steps:
-            - name: First Step
-              run: sleep 30
-            - name: Runs on canceled 
+            - name: First Step # Цей крок буде виконаний завжди з затримкою 30 секунд
+              run: exit 1
+            - name: Runs on canceled # Цей крок буде виконаний якщо workflow буде скасовано
               if: ${{ cancelled()}}
               run: echo "Runs on canceled"
-            - name: Runs on any case 
+            - name: Runs on any case # Цей крок буде виконаний завжди незалежно від статусу workflow
               if: ${{ always()}}
               run: echo "Runs on any case"
-            - name: Runs on success 
+            - name: Runs on success # Цей крок буде виконаний якщо workflow буде завершено успішно
               if: ${{ success()}}
               run: echo "Runs on success"
-            - name: Runs on Failure 
+            - name: Runs on Failure # Цей крок буде виконаний якщо workflow буде завершено з помилкою
               if: ${{ cancelled()}}
               run: echo "Runs on Failure"
