@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: First Step # Цей крок буде виконаний завжди з затримкою 30 секунд
-              run: exit 1
+              run: sleep 30
             - name: Runs on canceled # Цей крок буде виконаний якщо workflow буде скасовано
               if: ${{ cancelled()}}
               run: echo "Runs on canceled"
