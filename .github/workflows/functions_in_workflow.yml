@@ -17,5 +17,5 @@ jobs:
               if: ${{ success()}}
               run: echo "Runs on success"
             - name: Runs on Failure # Цей крок буде виконаний якщо workflow буде завершено з помилкою
-              if: ${{ cancelled()}}
+              if: ${{ failure()}}
               run: echo "Runs on Failure"
