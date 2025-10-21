@@ -1,0 +1,15 @@
+{
+  "name": "cicd-learning",
+  "version": "1.0.0",
+  "description": "Цей проект містить комплексні приклади використання GitHub Actions для вивчення CI/CD процесів. Включає 14 різних workflow файлів, що демонструють різні аспекти автоматизації.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.12.2"
+  }
+}
