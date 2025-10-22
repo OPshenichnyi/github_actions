@@ -16,11 +16,11 @@ jobs:
         runs-on: ubuntu-latest
         needs: run-artifacts-workflow
         steps:
-            - name: Change file
+            - name: Download file
               uses: actions/download-artifact@v5
               with:
                    name: math-result
-            - name: Math expression
+            - name: Math Expression
               run: |
                   value=$(cat math-result.txt)
                   expr $value \* 2 > math-result.txt
