@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Math expression
-              run: expr 2 + 2 math-result.txt
+              run: expr 2 + 2 > math-result.txt
             - name: Upload result file
               uses: actions/upload-artifact@v4
               with:
