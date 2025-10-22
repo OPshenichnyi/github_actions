@@ -3,10 +3,13 @@ on: [push]
 
 jobs:
     run-matrix-workflow:
+        continue-on-error: true
         strategy:
             matrix:
                 os: [ubuntu-latest, windows-latest]
                 node-version: [12, 14, 18]
+            fail-fast: false
+            max-parallel: 2
         runs-on: ${{ matrix.os }}
         steps:
           - run: node -v
