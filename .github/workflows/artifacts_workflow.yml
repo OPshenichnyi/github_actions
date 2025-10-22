@@ -12,9 +12,21 @@ jobs:
               with:
                    name: math-result
                    path: math-result.txt
-    run-download-artifact:
+    run-artifact-change:
         runs-on: ubuntu-latest
         needs: run-artifacts-workflow
+        steps:
+            - name: Change file
+              uses: actions/artifacts@v5
+              with:
+                   name: math-result
+            - name: Math expression
+              run: |
+                  value=$(cat math-result.txt)
+                  expr $value \* 2 > math-result.txt
+    run-download-artifact:
+        runs-on: ubuntu-latest
+        needs: run-artifact-change
         steps:
           - name: Download file
             uses: actions/download-artifact@v5
