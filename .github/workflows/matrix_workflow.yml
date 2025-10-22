@@ -5,8 +5,9 @@ jobs:
     run-matrix-workflow:
         strategy:
             matrix:
+                os: [ubuntu-latest, windows-latest]
                 node-version: [12, 14, 18]
-        runs-on: ubuntu-latest
+        runs-on: ${{ matrix.os }}
         steps:
           - run: node -v
           - uses: actions/setup-node@v4
