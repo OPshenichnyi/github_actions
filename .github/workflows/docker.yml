@@ -4,6 +4,9 @@ on: push
 jobs:
     test-docker-container:
         runs-on: ubuntu-latest
+        services:
+          customMySQL:
+                image: mysql
         container:
             image: node:18-alpine
             env:
@@ -11,7 +14,13 @@ jobs:
             ports:
                 - 80:80
         steps:
+          - name: Display services image
+            run: echo '${{ toJson(job.services) }}'
           - name: Display node version
             run: | 
                 node -v
                 cat /etc/os-release
+          - name: Print new Node Version 
+            uses: docker://node:18-buster-slim
+            with:
+              args: -v
