@@ -6,7 +6,7 @@ on:
               description: "Custom title"
               type: string
               default: "Testing text title"
-              required: true
+              required: false
 
 jobs:
   call_local_workflow:
@@ -15,6 +15,5 @@ jobs:
       title: ${{ inputs.title }}
   call_external_workflow:
     uses: OPshenichnyi/workflows/.github/workflows/workflow.yml@main
-    with: {}
     secrets: 
       PASSWORD: ${{ secrets.PASSWORD_SECRET_ONE }}
