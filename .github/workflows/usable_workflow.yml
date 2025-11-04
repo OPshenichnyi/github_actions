@@ -1,12 +1,12 @@
 name: Usable Workflow
 on:
-    workflow_dispatch:
-      inputs:
-        title:
-              description: "Custom title"
-              type: string
-              default: "Testing text title"
-              required: false
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "Custom title"
+        type: string
+        default: "Testing text title"
+        required: false
 
 jobs:
   call_local_workflow:
@@ -15,5 +15,5 @@ jobs:
       title: ${{ inputs.title }}
   call_external_workflow:
     uses: OPshenichnyi/workflows/.github/workflows/workflow.yml@main
-    secrets: 
+    secrets:
       PASSWORD: ${{ secrets.PASSWORD_SECRET_ONE }}
