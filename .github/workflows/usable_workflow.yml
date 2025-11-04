@@ -13,3 +13,7 @@ jobs:
        uses: ./.github/workflows/reusable_workflow.yml
        with:
           title: ${{ inputs.title }}
+  call_external_workflow:
+       uses: OPshenichnyi/workflows/.github/workflows/workflow.yml
+       secrets: 
+           PASSWORD: ${{secrets.PASSWORD_SECRET_ONE}}
